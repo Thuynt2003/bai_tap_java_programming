@@ -69,15 +69,16 @@ public class CreateController implements Initializable{
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(ListbookController.connectionString,ListbookController.user,ListbookController.pwd);
         Statement stt =conn.createStatement();
-            String sql_txt = "insert into students(name,email,mark,gender) values('"
+            String sql_txt = "insert into libraries(code,name,author,publishingCompany,type,price,amount) values('"
                     +code+"','"
                     +txtName.getText()+"',"
                     +txtAuthor.getText()+"','"
-                    +cbPubCompany.getValue()+"',"
-                    +cbType.getValue()+"',"
+                    +cbPubCompany.getValue()+"','"
+                    +cbType.getValue()+"','"
                     +pr
-                    +",'"+amounts
-                    ;
+                    +",'"+amounts+"')"
+            ;
+            stt.executeUpdate(sql_txt);
         listBook(null);
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);

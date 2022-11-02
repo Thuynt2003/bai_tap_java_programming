@@ -16,7 +16,11 @@ import libraries.createbook.Main;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.sql.*;
 
 public class EditController implements Initializable {
 
@@ -84,6 +88,7 @@ public class EditController implements Initializable {
             tb.add(index, editBook);
             ListbookController.tb = tb;
             listBook(null);
+
 
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
